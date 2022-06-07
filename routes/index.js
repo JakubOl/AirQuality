@@ -11,7 +11,6 @@ router.get("/dht11", async (req, res) => {
   const { temperature, humidity } = req.query;
   const data = new sensorData({ temperature, humidity });
   await data.save();
-  console.log(data);
   res.json(data);
 });
 
