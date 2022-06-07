@@ -5,6 +5,7 @@ const SensorSchema = mongoose.Schema(
   {
     temperature: { type: String },
     humidity: { type: String },
+    o3: { type: String },
   },
   { timestamps: true }
 );
