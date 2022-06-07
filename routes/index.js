@@ -22,6 +22,9 @@ router.get("/clearDB", async (req, res) => {
 });
 
 router.get("/dht11", async (req, res) => {
+  await sensorData.deleteMany({ temperature: "" });
+  await sensorData.deleteMany({ humidity: "" });
+  await sensorData.deleteMany({ o3: "" });
   const { temperature, humidity, o3 } = req.query;
   const data = new sensorData({ temperature, humidity, o3 });
   await data.save();
