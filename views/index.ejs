@@ -2,10 +2,35 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Air Quality</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Created At</th>
+          <th scope="col">Temperature</th>
+          <th scope="col">Humidity</th>
+          <th scope="col">O3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(i of data) { %>
+        <tr>
+          <td><%=i.formated_date%></td>
+          <td><%= i.temperature %></td>
+          <td><%= i.humidity %></td>
+          <td><%= i.o3 %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
   </body>
 </html>

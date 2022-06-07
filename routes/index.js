@@ -3,8 +3,13 @@ const router = express.Router();
 const sensorData = require("../models/sensors");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+router.get("/", async (req, res, next) => {
+  try {
+    const data = await sensorData.find({});
+    res.render("index", { title: "Express", data });
+  } catch (err) {
+    res.redirect("/");
+  }
 });
 
 router.get("/clearDB", async (req, res) => {
